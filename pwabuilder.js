@@ -3,6 +3,10 @@
 
 var Q = require('q');
 
+// Increase max header size from 8k to 80k to handle websites with CSP
+var http = require('http');
+http.maxHeaderSize = 80000; // has no effect in node < v11.16.0
+
 var lib = require('pwabuilder-lib');
 
 var log = lib.log,
